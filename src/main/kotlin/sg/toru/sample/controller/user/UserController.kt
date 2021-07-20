@@ -3,7 +3,7 @@ package sg.toru.sample.controller.user
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.*
 import sg.toru.sample.entity.user.User
-import sg.toru.sample.service.user.UserService
+import sg.toru.sample.service.user.impl.UserServiceImpl
 
 /*
 *  REST API Controller for User
@@ -12,7 +12,7 @@ import sg.toru.sample.service.user.UserService
 @RestController
 @RequestMapping("/api/v1/users")
 class UserController constructor(
-    @Autowired private val service: UserService
+    @Autowired private val service: UserServiceImpl
 ) {
     fun createUser(user: User): User {
         return service.createUser(user)

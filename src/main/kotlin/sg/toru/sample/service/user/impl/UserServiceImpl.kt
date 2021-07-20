@@ -1,4 +1,4 @@
-package sg.toru.sample.service.user
+package sg.toru.sample.service.user.impl
 
 import org.springframework.stereotype.Service
 import sg.toru.sample.entity.user.User
@@ -8,12 +8,13 @@ import sg.toru.sample.entity.user.User
 */
 
 @Service
-class UserService {
-    fun createUser(user: User): User {
+class UserServiceImpl: UserService {
+
+    override fun createUser(user: User): User {
         return user
     }
 
-    fun getUser(id: Int): User? {
+    override fun getUser(id: Int): User? {
         return User(
             id = 0,
             name = "", givenName = "", middleName = "",
@@ -22,7 +23,7 @@ class UserService {
         )
     }
 
-    fun getUsers(): List<User> {
+    override fun getUsers(): List<User> {
         return listOf(
             User(
                 id = 0,
@@ -33,11 +34,11 @@ class UserService {
         )
     }
 
-    fun updateUser(user: User): User {
+    override fun updateUser(user: User): User {
         return user
     }
 
-    fun deleteUser(user: User): User {
+    override fun deleteUser(user: User): User {
         return user
     }
 }
