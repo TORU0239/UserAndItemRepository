@@ -1,4 +1,4 @@
-package sg.toru.sample.service.user.impl
+package sg.toru.sample.service.user
 
 import sg.toru.sample.entity.user.User
 

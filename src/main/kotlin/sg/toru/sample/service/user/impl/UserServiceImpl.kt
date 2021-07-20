@@ -2,6 +2,7 @@ package sg.toru.sample.service.user.impl
 
 import org.springframework.stereotype.Service
 import sg.toru.sample.entity.user.User
+import sg.toru.sample.service.user.UserService
 
 /*
 *  CRUD Service for User
