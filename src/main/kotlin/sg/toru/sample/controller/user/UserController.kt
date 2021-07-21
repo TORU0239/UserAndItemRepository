@@ -2,7 +2,7 @@ package sg.toru.sample.controller.user
 
 import org.springframework.web.bind.annotation.PathVariable
 import org.springframework.web.bind.annotation.RequestBody
-import sg.toru.sample.entity.payment.Payment
+import sg.toru.sample.entity.payment.PaymentMethod
 import sg.toru.sample.entity.user.User
 import sg.toru.sample.entity.user.transaction.Transaction
 
@@ -18,8 +18,8 @@ interface UserController {
     fun deleteUser(@RequestBody user: User): User
 
     // register or deregister payment
-    fun registerPayment(userId: Long, paymentMethod: Payment): Boolean
-    fun deregisterPayment(userId: Long, paymentMethod: Payment): Boolean
+    fun registerPayment(userId: Long, paymentMethod: PaymentMethod): Boolean
+    fun deregisterPayment(userId: Long, paymentMethod: PaymentMethod): Boolean
 
     // inquiring the history of transaction
     fun inquireTransactionHistoryById(userId: Long): List<Transaction>

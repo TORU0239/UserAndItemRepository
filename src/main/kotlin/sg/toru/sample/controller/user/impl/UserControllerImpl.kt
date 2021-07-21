@@ -1,12 +1,14 @@
 package sg.toru.sample.controller.user.impl
 
 import org.springframework.beans.factory.annotation.Autowired
+import org.springframework.http.MediaType
 import org.springframework.web.bind.annotation.*
 import sg.toru.sample.controller.user.UserController
-import sg.toru.sample.entity.payment.Payment
+import sg.toru.sample.entity.payment.PaymentMethod
 import sg.toru.sample.entity.user.User
 import sg.toru.sample.entity.user.transaction.Transaction
 import sg.toru.sample.service.user.impl.UserServiceImpl
+import java.util.logging.Logger
 
 /*
 *  REST API Controller for User
@@ -17,6 +19,7 @@ import sg.toru.sample.service.user.impl.UserServiceImpl
 class UserControllerImpl constructor(
     @Autowired private val service: UserServiceImpl
 ): UserController {
+    @PostMapping("/create")
     override fun createUser(@RequestBody user: User): User {
         return service.createUser(user)
     }
@@ -42,12 +45,12 @@ class UserControllerImpl constructor(
     }
 
     @PostMapping("/payment/register")
-    override fun registerPayment(userId: Long, paymentMethod: Payment): Boolean {
+    override fun registerPayment(userId: Long, paymentMethod: PaymentMethod): Boolean {
         return service.registerPayment(userId, paymentMethod)
     }
 
     @PostMapping("/payment/deregister")
-    override fun deregisterPayment(userId: Long, paymentMethod: Payment): Boolean {
+    override fun deregisterPayment(userId: Long, paymentMethod: PaymentMethod): Boolean {
         return service.deregisterPayment(userId, paymentMethod)
     }
 

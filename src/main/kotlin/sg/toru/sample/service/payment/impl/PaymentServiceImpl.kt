@@ -1,7 +1,7 @@
 package sg.toru.sample.service.payment.impl
 
 import org.springframework.stereotype.Service
-import sg.toru.sample.entity.payment.Payment
+import sg.toru.sample.entity.payment.PaymentMethod
 import sg.toru.sample.service.payment.PaymentService
 
 /*
@@ -10,7 +10,7 @@ import sg.toru.sample.service.payment.PaymentService
 
 @Service
 class PaymentServiceImpl: PaymentService {
-    override fun makeTransaction(payment: Payment) {
+    override fun makeTransaction(payment: PaymentMethod) {
         TODO("Not yet implemented")
     }
 }

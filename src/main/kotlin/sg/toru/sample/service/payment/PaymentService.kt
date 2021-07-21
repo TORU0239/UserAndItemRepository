@@ -1,8 +1,8 @@
 package sg.toru.sample.service.payment
 
-import sg.toru.sample.entity.payment.Payment
+import sg.toru.sample.entity.payment.PaymentMethod
 
 interface PaymentService {
     // make a transaction
-    fun makeTransaction(payment:Payment)
+    fun makeTransaction(payment:PaymentMethod)
 }

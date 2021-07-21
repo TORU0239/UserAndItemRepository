@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.RestController
 import sg.toru.sample.controller.payment.PaymentController
-import sg.toru.sample.entity.payment.Payment
+import sg.toru.sample.entity.payment.PaymentMethod
 import sg.toru.sample.service.payment.PaymentService
 
 @RestController
@@ -14,7 +14,7 @@ class PaymentControllerImpl constructor(
 ): PaymentController
 {
 
-    override fun makeTransaction(payment: Payment) {
+    override fun makeTransaction(payment: PaymentMethod) {
         paymentService.makeTransaction(payment)
     }
 }

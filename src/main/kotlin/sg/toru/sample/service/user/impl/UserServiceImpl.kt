@@ -1,7 +1,7 @@
 package sg.toru.sample.service.user.impl
 
 import org.springframework.stereotype.Service
-import sg.toru.sample.entity.payment.Payment
+import sg.toru.sample.entity.payment.PaymentMethod
 import sg.toru.sample.entity.user.User
 import sg.toru.sample.entity.user.transaction.Transaction
 import sg.toru.sample.service.user.UserService
@@ -13,46 +13,47 @@ import sg.toru.sample.service.user.UserService
 @Service
 class UserServiceImpl: UserService {
 
+    private var userList:MutableSet<User> = mutableSetOf()
+
     override fun createUser(user: User): User {
-        // TODO: create a user in the real device
+        userList.add(user)
         return user
     }
 
     override fun getUser(id: Long): User? {
-        return User(
-            id = 0,
-            name = "", givenName = "", middleName = "",
-            mobileNumber = "",
-            address = "", postalCode = "",
-            password = "",
-        )
+        return userList.firstOrNull {
+            it.id == id
+        }
     }
 
     override fun getUsers(): List<User> {
-        return listOf(
-            User(
-                id = 0,
-                name = "", givenName = "", middleName = "",
-                mobileNumber = "",
-                address = "", postalCode = "",
-                password = "",
-            )
-        )
+        return userList.toList()
     }
 
     override fun updateUser(user: User): User {
+        var filteredUser = userList.firstOrNull {
+            it.id == user.id
+        }
+
+        if(filteredUser == null) {
+            userList.add(user)
+        } else {
+            filteredUser = user.copy()
+            userList.add(filteredUser)
+        }
         return user
     }
 
     override fun deleteUser(user: User): User {
+        userList.remove(user)
         return user
     }
 
-    override fun registerPayment(userId: Long, paymentMethod: Payment): Boolean {
+    override fun registerPayment(userId: Long, paymentMethod: PaymentMethod): Boolean {
         return false
     }
 
-    override fun deregisterPayment(userId: Long, paymentMethod: Payment): Boolean {
+    override fun deregisterPayment(userId: Long, paymentMethod: PaymentMethod): Boolean {
         return false
     }
 

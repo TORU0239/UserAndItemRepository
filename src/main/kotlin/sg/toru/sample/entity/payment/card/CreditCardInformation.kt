@@ -1,14 +1,14 @@
 package sg.toru.sample.entity.payment.card
 
-data class CreditCard(
+data class CreditCardInformation(
     val cardNumber: String,
-    val vanCompany: CreditCardVanCompany,
+    val vanType: CreditCardVanType,
     val cvv: String,
     val expiryYear: String,
     val expiryMonth: String,
 )
 
-enum class CreditCardVanCompany {
+enum class CreditCardVanType {
     MASTER,
     VISA,
 }

@@ -1,6 +1,6 @@
 package sg.toru.sample.entity.user
 
-import sg.toru.sample.entity.payment.Payment
+import sg.toru.sample.entity.payment.PaymentMethod
 import sg.toru.sample.entity.user.transaction.Transaction
 
 
@@ -18,6 +18,6 @@ data class User(
     val password: String,
     val isPhoneVerificationNeeded: Boolean = true,
 
-    val paymentMethods: Set<Payment> = setOf(),
+    val paymentMethods: Set<PaymentMethod> = setOf(),
     val transactionHistory: List<Transaction> = listOf(),
 )
