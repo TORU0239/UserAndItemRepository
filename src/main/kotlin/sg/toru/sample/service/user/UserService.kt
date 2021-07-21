@@ -12,8 +12,8 @@ interface UserService {
     fun deleteUser(user: User): User
 
     // register or deregister payment
-    fun registerPayment(userId: Long, paymentMethod: PaymentMethod): Boolean
-    fun deregisterPayment(userId: Long, paymentMethod: PaymentMethod): Boolean
+    fun registerPayment(paymentMethod: PaymentMethod): Boolean
+    fun deregisterPayment(paymentMethod: PaymentMethod): Boolean
 
     // inquiring the history of transaction
     fun inquireTransactionHistoryById(userId: Long): List<Transaction>

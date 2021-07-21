@@ -49,13 +49,30 @@ class UserServiceImpl: UserService {
         return user
     }
 
-    override fun registerPayment(userId: Long, paymentMethod: PaymentMethod): Boolean {
-        return false
+    override fun registerPayment(paymentMethod: PaymentMethod): Boolean {
+        val user = userList.firstOrNull {
+            it.id == paymentMethod.userId
+        }
+        var result = false
+        user?.let {
+            result = (it.paymentMethods as MutableSet).add(paymentMethod)
+        }
+        return result
     }
 
-    override fun deregisterPayment(userId: Long, paymentMethod: PaymentMethod): Boolean {
-        return false
+    override fun deregisterPayment(paymentMethod: PaymentMethod): Boolean {
+        val user = userList.firstOrNull {
+            it.id == paymentMethod.userId
+        }
+        var result = false
+        user?.let {
+            result = (it.paymentMethods as MutableSet).removeIf { each ->
+                each.id == paymentMethod.id
+            }
+        }
+        return result
     }
+
 
     override fun inquireTransactionHistoryById(userId: Long): List<Transaction> {
         return listOf()

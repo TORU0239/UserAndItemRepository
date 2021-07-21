@@ -9,15 +9,15 @@ import sg.toru.sample.entity.user.transaction.Transaction
 * */
 data class User(
     val id: Long,
-    val name: String,
-    val givenName: String,
-    val middleName: String,
-    val mobileNumber: String,
-    val address: String,
-    val postalCode: String,
-    val password: String,
-    val isPhoneVerificationNeeded: Boolean = true,
+    var name: String,
+    var givenName: String,
+    var middleName: String,
+    var mobileNumber: String,
+    var address: String,
+    var postalCode: String,
+    var password: String,
+    var isPhoneVerificationNeeded: Boolean = true,
 
-    val paymentMethods: Set<PaymentMethod> = setOf(),
-    val transactionHistory: List<Transaction> = listOf(),
+    var paymentMethods: Set<PaymentMethod> = setOf(),
+    var transactionHistory: List<Transaction> = listOf(),
 )
