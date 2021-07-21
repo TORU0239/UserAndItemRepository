@@ -11,6 +11,6 @@ data class User(
     val address: String,
     val postalCode: String,
     val password: String,
-    val isPhoneVerificationNeeded: Boolean,
-    val paymentMethod: Payment
+    val isPhoneVerificationNeeded: Boolean = true,
+    val paymentMethod: Payment? = null
 )

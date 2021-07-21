@@ -20,7 +20,8 @@ class UserServiceImpl: UserService {
             id = 0,
             name = "", givenName = "", middleName = "",
             mobileNumber = "",
-            address = "", postalCode = ""
+            address = "", postalCode = "",
+            password = "",
         )
     }
 
@@ -30,7 +31,8 @@ class UserServiceImpl: UserService {
                 id = 0,
                 name = "", givenName = "", middleName = "",
                 mobileNumber = "",
-                address = "", postalCode = ""
+                address = "", postalCode = "",
+                password = "",
             )
         )
     }

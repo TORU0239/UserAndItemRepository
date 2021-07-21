@@ -5,12 +5,13 @@ import sg.toru.sample.entity.payment.fundtransfer.FundTransfer
 
 data class Payment(
     val id: String,
-    val paymentMethod: PaymentMethods,
-    val paymentCreditCard: CreditCard?,
-    val paymentFundTransfer: FundTransfer?,
+    val paymentMethod: PaymentMethods = PaymentMethods.NotSetup,
+    val paymentCreditCard: CreditCard? = null,
+    val paymentFundTransfer: FundTransfer? = null,
 )
 
 enum class PaymentMethods {
+    NotSetup,
     CreditCard,
     FundTransfer,
 }
