@@ -1,7 +1,12 @@
 package sg.toru.sample.entity.user
 
 import sg.toru.sample.entity.payment.Payment
+import sg.toru.sample.entity.user.transaction.Transaction
 
+
+/*
+* User's fundamental information and payment methods registered.
+* */
 data class User(
     val id: Long,
     val name: String,
@@ -12,6 +17,7 @@ data class User(
     val postalCode: String,
     val password: String,
     val isPhoneVerificationNeeded: Boolean = true,
-    val primaryPaymentMethod: Payment? = null,
-    val secondPaymentMethod: Payment? = null
+
+    val paymentMethods: Set<Payment> = setOf(),
+    val transactionHistory: List<Transaction> = listOf(),
 )

@@ -13,13 +13,6 @@ class PaymentControllerImpl constructor(
     @Autowired private val paymentService: PaymentService
 ): PaymentController
 {
-    override fun registerPayment(userId: Long, paymentService: PaymentService) {
-        paymentService.registerPayment(userId, paymentService)
-    }
-
-    override fun deregisterPayment(userId: Long) {
-        paymentService.deregisterPayment(userId)
-    }
 
     override fun makeTransaction(payment: Payment) {
         paymentService.makeTransaction(payment)
